@@ -61,6 +61,10 @@ enum bcl_device_mode {
 	BCL_DEVICE_ENABLED,
 	BCL_DEVICE_ENABLED = 1,
 	BCL_DEVICE_DISABLED = 0,
+	BCL_DEVICE_ENABLED = 0,
+	BCL_DEVICE_DISABLED,
+};
+
 /*
  * Battery Current Limit Iavail Threshold Mode set
  */
@@ -69,6 +73,10 @@ enum bcl_iavail_threshold_mode {
 	BCL_IAVAIL_THRESHOLD_ENABLED,
 	BCL_IAVAIL_THRESHOLD_ENABLED = 1,
 	BCL_IAVAIL_THRESHOLD_DISABLED = 0,
+	BCL_IAVAIL_THRESHOLD_ENABLED = 0,
+	BCL_IAVAIL_THRESHOLD_DISABLED,
+};
+
 /*
  * Battery Current Limit Iavail Threshold Mode
  */

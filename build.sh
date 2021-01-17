@@ -8,7 +8,7 @@ export KBUILD_BUILD_USER=Izwahyudhi
 
 export KBUILD_BUILD_HOST=izwahyudhi@github
 
-export TOOLCHAIN=gcc
+export TOOLCHAIN=clang
 
 export DEVICES=lavender
 

@@ -47,7 +47,6 @@ struct vdso_data {
 	vdso_wtm_clock_nsec_t wtm_clock_nsec;
 	__u32 btm_sec;		/* monotonic to boot time */
 	__u32 btm_nsec;
-	__u64 btm_nsec;		/* monotonic to boot time */
 	__u32 tb_seq_count;	/* Timebase sequence counter */
 	/* cs_* members must be adjacent and in this order (ldp accesses) */
 	__u32 cs_mono_mult;	/* NTP-adjusted clocksource multiplier */

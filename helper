@@ -41,7 +41,7 @@ send_msg(){
 send_file(){
 	print "Sending file..." green
 	curl -F chat_id="${chat_id}" \
-		-F caption="✅ Build succesfully! | DEVICE: ${type} | SHA1 : $(sha1sum ${file} | awk '{ print $1 }')" \
+		-F caption="✅ Udah asu! | DEVICE: ${type} | SHA1 : $(sha1sum ${file} | awk '{ print $1 }')" \
 		-F document=@"${1}" \
 		 https://api.telegram.org/bot"${bot_token}"/sendDocument
 }
@@ -56,7 +56,7 @@ mkzip(){
 		cd ..
 		send_file $1
 	else
-		send_msg "Build error !"
+		send_msg "Gagal Gblg !"
 		print "Build error !" red
 		exit 1
 	fi
@@ -79,12 +79,12 @@ gen_toolchain(){
 	print "Cloning toolchain files..." green
 	if [ $TOOLCHAIN == "clang" ]
 	then
-		git clone --depth=1 https://github.com/kdrag0n/proton-clang clang
+		git clone --depth=1 https://github.com/GengKapak/Gengkapak-clang clang
 	else
 		git clone --depth=1 https://github.com/chips-project/aarch64-elf gcc64
 		git clone --depth=1 https://github.com/chips-project/arm-eabi gcc32
 	fi
-	git clone --depth=1 https://github.com/frostid/AnyKernel3 -b master anykernel
+	git clone --depth=1 https://github.com/Izwahyudhi/AnyKernel3 -b master anykernel
 }
 
 build(){

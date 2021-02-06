@@ -284,6 +284,16 @@ int aarch32_setup_vectors_page(struct linux_binprm *bprm, int uses_interp)
 
 	down_write(&mm->mmap_sem);
 
+
+#ifdef CONFIG_COMPAT
+#ifdef CONFIG_VDSO32
+int aarch32_setup_vectors_page(struct linux_binprm *bprm, int uses_interp)
+{
+	struct mm_struct *mm = current->mm;
+	void *ret;
+
+	down_write(&mm->mmap_sem);
+
 	ret = ERR_PTR(vdso_setup(mm, &vdso32_mappings));
 #ifdef CONFIG_KUSER_HELPERS
 	if (!IS_ERR(ret))
@@ -345,6 +355,7 @@ void update_vsyscall(struct timekeeper *tk)
 		vdso_data->cs_shift		= tk->tkr_mono.shift;
 		vdso_data->btm_sec		= btm.tv_sec;
 		vdso_data->btm_nsec		= btm.tv_nsec;
+		vdso_data->btm_nsec		= ktime_to_ns(tk->offs_boot);
 	}
 
 	smp_wmb();

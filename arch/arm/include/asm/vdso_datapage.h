@@ -66,6 +66,7 @@ struct vdso_data {
 
 	u32 btm_sec;		/* monotonic to boot time */
 	u32 btm_nsec;
+	u64 btm_nsec;		/* monotonic to boot time */
 	/* Raw clocksource multipler */
 	u32 cs_raw_mult;
 	/* Raw time */
